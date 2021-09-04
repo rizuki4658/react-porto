@@ -1,0 +1,180 @@
+$color-base: #1C1C1C;
+$color-primary: #61DBFB;
+$color-primary-light: #61DBFB50;
+$color-light: #FFF;
+@font-face {
+  font-family: 'Varela Round', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+}
+body {
+  padding: 0;
+  margin: 0;
+  color: $color-base;
+}
+main {
+  margin-top: 64px;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Varela Round', sans-serif !important;
+}
+.bg-dark {
+  background-color: $color-base;
+}
+.bg-primary {
+  background-color: $color-primary;
+}
+.container {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+nav {
+  position: fixed;
+  background-color: $color-base;
+  left: 0;
+  right: 0;
+  top: 0;
+  color: #FFF;
+  height: 64px;
+  padding: 0px 24px;
+  z-index: 50;
+}
+.nav-item {
+  color: inherit;
+  &:hover {
+    color: $color-primary;
+  }
+}
+.nav-item-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 56px;
+  background-color: $color-base;
+  color: $color-light;
+  height: 0px;
+  overflow-y: hidden;
+  z-index: 50;
+  transition: height .3s ease-in-out .1s;
+  &.active {
+    height: 232px;
+  }
+}
+#hero {
+  height: calc(100vh - 64px);
+}
+
+.main-title {
+  text-align: center;
+  margin-bottom: 5rem;
+  h1 {
+    font-size: 3rem;
+    position: relative;
+    margin-bottom: 1rem;
+    padding-bottom: .6rem;
+    &::before {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      height: 2px;
+      width: 100px;
+      content: "";
+      background: $color-primary;
+      margin-left: -50px;
+    }
+    &::after {
+      position: absolute;
+      left: 50%;
+      bottom: -4px;
+      height: 10px;
+      width: 10px;
+      content: "";
+      background: $color-primary;
+      margin-left: -5px;
+      border-radius: 50%;
+    }
+  }
+  &.two {
+    text-align: left;
+    h1 {
+      &::before {
+        left: 0;
+      margin-left: 0px;
+      }
+      &::after {
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 26px;
+    color: $color-base;
+    margin-bottom: 0px;
+    margin: auto;
+  }
+}
+
+.works-filter {
+  background: $color-base;
+}
+.list-item {
+  display: inline-block;
+  margin-right: 3rem;
+  color: $color-light;
+  &:hover,
+  &.active {
+    color: $color-primary;
+  }
+  &.active {
+    font-weight: bold;
+    border-bottom: 1px solid $color-primary;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}
+.filter.list {
+  &::after {
+    position: absolute;
+    left: 2%;
+    bottom: -10px;
+    height: 100%;
+    width: 96%;
+    content: "";
+    background: $color-base;
+    opacity: .2;
+    z-index: -1;
+  }
+}
+.work-item {
+  .work-overlay {
+    height: 0;
+    transition: height .3s ease-in-out;
+  }
+  &:hover {
+    .work-overlay {
+      height: 100%;
+      background: #1C1C1C30;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  nav {
+    padding: 0px 16px;
+    height: 56px;
+  }
+  .nav-item {
+    margin: 16px 0;
+  }
+  main {
+    margin-top: 56px;
+  }
+}
