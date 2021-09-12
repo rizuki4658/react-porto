@@ -1,11 +1,24 @@
 import 'tailwindcss/tailwind.css';
 import '~/styles/index.scss';
-import type { AppProps } from 'next/app';
 import Layout from '~/layouts/default';
-function MyApp({ Component, pageProps }: AppProps) {
+import type { AppProps } from 'next/app';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FadeInUp } from '~/utils/transition/page-fade';
+
+function MyApp({ Component, pageProps, router }: AppProps) {
+  const fadeInUp = FadeInUp;
   return (
     <Layout>
-      <Component {...pageProps} />
+      <AnimatePresence exitBeforeEnter>
+        <motion.div
+          key={router.route}
+          variants={fadeInUp}
+          initial='initial'
+          animate='animate'
+          exit='exit'>
+          <Component {...pageProps} key={router.route} />
+        </motion.div>
+      </AnimatePresence>
     </Layout>
   )
 }

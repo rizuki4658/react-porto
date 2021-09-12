@@ -11,6 +11,9 @@ body {
   margin: 0;
   color: $color-base;
 }
+title {
+  text-transform: capitalize;
+}
 main {
   margin-top: 64px;
 }
@@ -22,6 +25,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 .bg-primary {
   background-color: $color-primary;
+}
+.text-primary {
+  color: $color-primary !important;
 }
 .container {
   width: 100%;
@@ -42,6 +48,7 @@ nav {
   height: 64px;
   padding: 0px 24px;
   z-index: 50;
+  transition: box-shadow .3s ease-in-out;
 }
 .nav-item {
   color: inherit;
@@ -161,11 +168,151 @@ nav {
   &:hover {
     .work-overlay {
       height: 100%;
-      background: #1C1C1C30;
+      background: #1C1C1C80;
     }
   }
 }
+.progress {
+  background-color: #77777720;
+  line-height: 1em;
+  border-radius: 50px;
+  position: relative;
+  height: 6px;
+}
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  border-radius: inherit;
+  transition: width .3s ease-in-out;
+}
 
+.fade-appear{
+  opacity:0;
+}
+.fade-enter{
+  opacity:0;
+}
+.fade-enter-done{
+  opacity: 1;
+  transition: opacity 1000ms ease-in-out;
+}
+.fade-exit{
+  transform: scale(1);
+  opacity: 1;
+}
+.fade-exit-active{
+  opacity: 0;
+  transition: opacity 1000ms ease-in-out;
+}
+
+
+.scale-appear{
+  opacity:0;
+}
+.scale-enter{
+  opacity:0;
+}
+.scale-enter-done{
+  transform: scale(1);
+  opacity: 1;
+  transition: transform 1000ms ease-in-out, opacity 1000ms ease-in-out;
+}
+.scale-exit{
+  transform: scale(1);
+  opacity: 1;
+}
+.scale-exit-active{
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 1000ms ease-in-out, opacity 1000ms ease-in-out;
+}
+
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #777;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @media screen and (max-width: 767px) {
   nav {
     padding: 0px 16px;

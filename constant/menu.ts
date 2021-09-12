@@ -23,7 +23,7 @@ export const Options: Item[] = [
     id: 4,
     name: 'experience',
     label: 'Experience',
-    url: '/experience',
+    url: '/experiences',
   },
   {
     id: 5,

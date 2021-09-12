@@ -1,16 +1,21 @@
 import React from 'react';
 import { withRouter, NextRouter } from 'next/router';
 import Head from 'next/head';
-import About from '~/components/about';
+import Experience from '~/components/experience';
+import { experience as TypeExperience} from '~/interface/profile';
+import { Profiles } from '~/utils/profiles';
+
 interface Props {
   router: NextRouter;
+  experiences: TypeExperience[];
 };
 
-class AboutPage extends React.Component<Props> {
+class ExperiencePage extends React.Component<Props> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      route: props.router
+      route: props.router,
+      experiences: Profiles.experiences
     }
   }
 
@@ -18,6 +23,7 @@ class AboutPage extends React.Component<Props> {
     const route = this.props.router;
     const sourceText = route.pathname.replace('/', '');
     const text = sourceText.charAt(0).toUpperCase() + sourceText.slice(1);
+    const data: any = this.state;
     return (
       <div>
         <Head>
@@ -26,11 +32,14 @@ class AboutPage extends React.Component<Props> {
         </Head>
 
         <main>
-          <About />
+          <Experience
+            experiences={data.experiences}
+            selected={data.experiences[0]}
+          />
         </main>
       </div>
     );
   }
 }
 
-export default withRouter(AboutPage);
+export default withRouter(ExperiencePage);
